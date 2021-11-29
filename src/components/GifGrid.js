@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export const GifGrid = ({ category }) => {
+
+  useEffect(() => {
+    getGifs();
+  }, [])
 
   const getGifs = async () => {
     const url = 'https://api.giphy.com/v1/gifs/search?q=Rick+and+Morty&limit=10&api_key=AmKuUkYEf0q7pWZvDVyvYucQsqb0oWuJ';
@@ -19,8 +23,6 @@ export const GifGrid = ({ category }) => {
       console.log(error.message);
     }
   }
-
-  getGifs();
 
   return (
     <div>
