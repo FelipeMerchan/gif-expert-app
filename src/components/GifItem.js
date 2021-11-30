@@ -2,7 +2,7 @@ import React from 'react';
 
 export const GifItem = ({ title, url }) => {
   return (
-    <div className="card">
+    <div className="card animate__animated animate__fadeIn">
       <img
         className="card__img"
         src={url}

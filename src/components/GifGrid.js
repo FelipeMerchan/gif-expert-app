@@ -9,9 +9,9 @@ export const GifGrid = ({ category }) => {
 
   return (
     <section aria-label="Gif list">
-      <h3>{category}</h3>
+      <h3 className="animate__animated animate__fadeIn">{category}</h3>
 
-      {loading && 'Cargando...'}
+      {loading && <p className="animate__animated animate__flash">Cargando...</p>}
 
       <div className="card-grid">
         {
