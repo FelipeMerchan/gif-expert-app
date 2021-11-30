@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { getGifs } from '../helpers/getGifs';
+import React from 'react';
+import { useFetchGifs } from '../hooks/useFetchGifs';
 
 import { GifItem } from './GifItem';
 
 export const GifGrid = ({ category }) => {
 
-  const [images, setImages] = useState([]);
-
-  useEffect(() => {
-    getGifs(category)
-      .then(setImages)
-      .catch(console.error);
-  }, [category])
+  const { data: images, loading } = useFetchGifs(category);
 
   return (
     <section aria-label="Gif list">
       <h3>{category}</h3>
+
+      {loading && 'Cargando...'}
+
       <div className="card-grid">
         {
           images.map(img => (
