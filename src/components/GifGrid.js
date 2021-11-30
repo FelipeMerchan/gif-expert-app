@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { GifItem } from './GifItem';
 
 export const GifGrid = ({ category }) => {
+
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     getGifs();
@@ -19,6 +23,7 @@ export const GifGrid = ({ category }) => {
         }
       });
       console.log(gifs);
+      setImages(gifs);
     } catch (error) {
       console.log(error.message);
     }
@@ -27,6 +32,14 @@ export const GifGrid = ({ category }) => {
   return (
     <div>
       <h3>{category}</h3>
+      {
+        images.map(img => (
+          <GifItem
+            key={img.id}
+            {...img}
+          />
+        ))
+      }
     </div>
   )
 }
