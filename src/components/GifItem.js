@@ -2,13 +2,14 @@ import React from 'react';
 
 export const GifItem = ({ title, url }) => {
   return (
-    <div>
+    <div className="card">
       <img
+        className="card__img"
         src={url}
         alt={title}
         title={title}
       />
-      <p>{title}</p>
+      <p className="card__title">{title}</p>
     </div>
   )
 }

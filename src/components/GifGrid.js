@@ -22,7 +22,6 @@ export const GifGrid = ({ category }) => {
           url: img.images?.downsized_medium.url,
         }
       });
-      console.log(gifs);
       setImages(gifs);
     } catch (error) {
       console.log(error.message);
@@ -30,16 +29,18 @@ export const GifGrid = ({ category }) => {
   }
 
   return (
-    <div>
+    <section aria-label="Gif list">
       <h3>{category}</h3>
-      {
-        images.map(img => (
-          <GifItem
-            key={img.id}
-            {...img}
-          />
-        ))
-      }
-    </div>
+      <div className="card-grid">
+        {
+          images.map(img => (
+            <GifItem
+              key={img.id}
+              {...img}
+            />
+          ))
+        }
+      </div>
+    </section>
   )
 }
