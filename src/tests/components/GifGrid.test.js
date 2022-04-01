@@ -23,9 +23,6 @@ describe('Pruebas en el componente <GifGrid />', () => {
   });
 
   test('Debe mostrar items cuando se cargan imagenes useFetchGifs', () => {
-    /* Un mock sirve para fingir. Por ejemplo, que el componente tiene informacion
-      que trae de una API.
-    */
     const gifs = [
       {
         id: 'ABC',
@@ -38,13 +35,16 @@ describe('Pruebas en el componente <GifGrid />', () => {
         url: 'https://localhost/cualqueir/cosa.jpg',
       }
     ];
+    /* Un mock sirve para fingir. Por ejemplo, que el componente tiene informacion
+      que trae de una API.
+    */
     useFetchGifs.mockReturnValue({
       data: gifs,
       loading: false,
     });
     const wrapper = shallow(<GifGrid category={category} />);
-    /* Verifica si el parrafo que dice loading existe: */
     expect(wrapper).toMatchSnapshot();
+    /* Verifica si el parrafo que dice loading existe: */
     expect(wrapper.find('p').exists()).toBe(false);
     /* Al metodo find podemos pasarle el nombre de un componente ('GifItem') */
     expect(wrapper.find('GifItem').length).toBe(gifs.length);
