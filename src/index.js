@@ -5,7 +5,9 @@ import { GifExpertApp } from './components/GifExpertApp';
 
 import './index.css';
 
+const defaultCategories = ['Demon Slayer'];
+
 ReactDOM.render(
-  <GifExpertApp />,
+  <GifExpertApp defaultCategories={defaultCategories} />,
   document.getElementById('root')
 );

@@ -35,7 +35,7 @@ describe('Pruebas en el componente <GifGrid />', () => {
         url: 'https://localhost/cualqueir/cosa.jpg',
       }
     ];
-    /* Un mock sirve para fingir. Por ejemplo, que el componente tiene informacion
+    /* Un mock sirve para fingir; por ejemplo, que el componente tiene informacion
       que trae de una API.
     */
     useFetchGifs.mockReturnValue({
